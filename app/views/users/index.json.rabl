@@ -8,7 +8,8 @@ child @users, object_root: false do
 
 	node :links do |user|
   	{
-    	closet_items: user_closet_items_url(user)
+    	closet_items: user_closet_items_url(user),
+    	looks_as_creator: creator_looks_url(user),
   	}
 	end
 end

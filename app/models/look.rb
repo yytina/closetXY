@@ -7,5 +7,5 @@ class Look < ActiveRecord::Base
   belongs_to :outerwear, class_name: "ClothingItem", inverse_of: :looks_as_outerwear
   belongs_to :accessory, class_name: "ClothingItem", inverse_of: :looks_as_accessory
 
-  has_many :comments
+  has_many :comments, dependent: :destroy
 end

@@ -20,6 +20,7 @@ ClosetXY::Application.routes.draw do
     end
   end
 
+
   scope :api do
     resources :creators, except: [ :show, :new, :edit ],
       defaults: { format: :json } do

@@ -9,5 +9,6 @@ end
 node :links do |closet_item|
   {
     user: user_url(@user)
+
   }
 end

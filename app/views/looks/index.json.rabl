@@ -8,6 +8,7 @@ end
 
 node :links do |look|
   {
-    creator: creator_url(look.creator)
+    creator: creator_url(look.creator),
+    comments: look_comments_url(look)
   }
 end

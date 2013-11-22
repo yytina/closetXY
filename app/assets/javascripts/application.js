@@ -15,5 +15,6 @@
 
 //= require handlebars
 //= require index
+//= require templates
 
 //= require_tree .

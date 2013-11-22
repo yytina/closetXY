@@ -16,10 +16,31 @@ ClosetXY::Application.routes.draw do
     resources :looks, except: [ :show, :new, :edit ],
       defaults: { format: :json } do
       get ':id' => 'looks#index', on: :collection 
+
+      resources :comments, except: [ :show, :new, :edit ],
+        defaults: { format: :json } do
+        get ':id' => 'comments#index', on: :collection
+      end
+       
+    end
+  end
+  
+  scope :api do
+    resources :clothing_items, except: [ :show, :new, :edit ],
+      defaults: { format: :json } do
+      get ':id' => 'clothing_items#index', on: :collection 
        
     end
   end
 
+  scope :api do
+    resources :new_items, except: [ :show, :new, :edit ],
+      defaults: { format: :json } do
+      get ':id' => 'new_items#index', on: :collection 
+       
+    end
+  end
+  
 
   scope :api do
     resources :creators, except: [ :show, :new, :edit ],

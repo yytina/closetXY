@@ -1,0 +1,10 @@
+$ ->
+	usersTemplate = "
+
+
+	"
+
+	userTemplate = "
+
+
+	"

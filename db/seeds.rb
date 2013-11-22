@@ -2,6 +2,7 @@ User.destroy_all
 ClosetItem.destroy_all
 NewItem.destroy_all
 Look.destroy_all
+Comment.destroy_all
 
 users=User.create([
 	{

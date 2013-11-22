@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  email: MyString
+  salt: MyString
+  fish: MyString
+  code: MyString
+  expires_at: MyString
+  timestamp: MyString
+  height: 1
+  bodyType: MyString
+
+two:
+  name: MyString
+  email: MyString
+  salt: MyString
+  fish: MyString
+  code: MyString
+  expires_at: MyString
+  timestamp: MyString
+  height: 1
+  bodyType: MyString

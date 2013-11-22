@@ -1,0 +1,2 @@
+class NewItem < ClothingItem
+end

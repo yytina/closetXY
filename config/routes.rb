@@ -29,6 +29,11 @@ ClosetXY::Application.routes.draw do
     resources :clothing_items, except: [ :show, :new, :edit ],
       defaults: { format: :json } do
       get ':id' => 'clothing_items#index', on: :collection 
+
+      resources :looks, except: [ :show, :new, :edit ],
+        defaults: { format: :json } do
+        get ':id' => 'looks#index', on: :collection
+      end
        
     end
   end

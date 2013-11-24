@@ -1,4 +1,6 @@
-collection @clothing_items
+
+object false
+child @clothing_items, object_root: false do
 
 attributes :id, :type, :category, :color, :size, :material
 
@@ -9,7 +11,9 @@ end
 node :links do |clothing_item|
   {
     
-    looks: look_url(clothing_item.looks_as_top)  
+    looks: clothing_item_looks_url(clothing_item)
 
   }
+end
+
 end

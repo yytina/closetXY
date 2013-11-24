@@ -3,9 +3,14 @@ class LooksController < ApplicationController
   respond_to :json
   
   def index
-  	#@creator = User.find(params[:creator_id]) if params[:creator_id]
-  	@looks = params[:id] ? Look.where('id in (?)', params[:id].split(","))  : Look.all
-
+  	#@clothing_item = User.find(params[:clothing_item_id]) if params[:clothing_item_id]
+  	@looks = if params[:clothing_item_id] && @clothing_item = ClothingItem.where('id = ?', params[:clothing_item_id]).take
+  		@clothing_item.looks_as_top
+  	elsif params[:id]
+  		Look.where('id in (?)', params[:id].split(","))
+		else
+			Look.all
+		end
 
 		#render json: @looks
 	end

@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20131120005308) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "clothing_items", force: true do |t|
     t.string   "type"
     t.string   "category"
@@ -34,7 +37,7 @@ ActiveRecord::Schema.define(version: 20131120005308) do
     t.datetime "updated_at"
   end
 
-  add_index "comments", ["look_id"], name: "index_comments_on_look_id"
+  add_index "comments", ["look_id"], name: "index_comments_on_look_id", using: :btree
 
   create_table "looks", force: true do |t|
     t.string   "title"

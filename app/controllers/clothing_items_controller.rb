@@ -4,12 +4,8 @@ class ClothingItemsController < ApplicationController
   
   def index
   	#@user = User.find(params[:creator_id]) if params[:user_id]
-
-  	@clothing_items = params[:id] ? ClothingItem.where('id in (?)', params[:id].split(","))  : ClothingItem.all
-   
     
-
-		#render json: @looks
+  	@clothing_items = params[:id] ? ClothingItem.where('id in (?)', params[:id].split(","))  : ClothingItem.all
 	end
 
 	def create

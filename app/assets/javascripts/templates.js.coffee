@@ -8,20 +8,33 @@
   "
 
   userTemplate: Handlebars.compile "
-      <section id=\"top\">top:</section>
-      <section id=\"bottom\">bottom:</section>
-      <section id=\"outerwear\">outerwear:</section>
-      <section id=\"accessory\">accessory:</section>
+    <div id=\"tabs\">
+      <ul>
+        <li><a href=\"#tabs-top\">Top</a></li>
+        <li><a href=\"#tabs-bottom\">Bottom</a></li>
+        <li><a href=\"#tabs-outerwear\">Outerwear</a></li>
+        <li><a href=\"#tabs-accessory\">Accessory</a></li>
+      </ul>
+      {{#each categories}}
+        <div id=\"tabs-{{name}}\">
+          {{#each clothing_items}}
 
+            <img src=\"/placeholder.jpg\" />
+            <p data-id=\"{{id}}\">{{id}}/{{category}}/{{color}}/{{size}}/{{material}}</p>    
+          {{/each}}
+        </div>
+      {{/each}}
+    </div>
 
+    <script>
+      $('#tabs').tabs();
+    </script>
 
-
-
-	    {{#each clothing_items}}
-	    	
-	      <p data-id=\"{{id}}\">{{id}}/{{category}}/{{color}}/{{size}}/{{material}}</p>      
-	    {{/each}}
     <p><a id=\"back-to-users\" href=\"#\">Back to Users</a></p>
+    <form>
+      <input type=\"text\">
+      <button> Update</button>
+    </form>
   "
 
   looksTemplate: Handlebars.compile "

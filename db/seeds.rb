@@ -14,7 +14,12 @@ users=User.create([
 		name: "Bob",
 		height: 175,
 		body_type: "thin"
-	}
+	},
+	{
+		name: "Tom",
+		height: 185,
+		body_type: "chubby"
+	},
 ])
 
 closet_items = ClosetItem.create([
@@ -44,6 +49,20 @@ closet_items = ClosetItem.create([
 		category: "accessory",
 		color: "brown",
 		size:"u",
+		material:"leather"
+	},
+	{
+		user:users[0],
+		category: "top",
+		color: "green",
+		size:"l",
+		material:"linen"
+	},
+	{
+		user:users[0],
+		category: "outerwear",
+		color: "brown",
+		size:"l",
 		material:"leather"
 	}
 ])
@@ -79,6 +98,22 @@ new_items = NewItem.create([
 		color: "black",
 		size:"u",
 		material:"leather"
+	},
+	{
+		product_id:"SS13OUT1",
+		price:20.2,
+		category: "top",
+		color: "black",
+		size:"u",
+		material:"wool"
+	},
+	{
+		product_id:"SS13ACC2",
+		price:20.2,
+		category: "accessory",
+		color: "gunmetal",
+		size:"u",
+		material:"metal"
 	}
 ])
 looks = Look.create([
@@ -94,6 +129,17 @@ looks = Look.create([
 		accessory: closet_items[3]
 	},
 	{
+		title:"mischievous mood",
+		occasion: "everyday",
+		like: 3,
+		creator: users[1],
+		owner: users[0],
+		top: closet_items[0],
+		bottom:new_items[1],
+		outerwear: closet_items[2],
+		accessory: closet_items[5]
+	},
+	{
 		title:"marine boy",
 		occasion: "holiday",
 		like: 5,
@@ -103,6 +149,28 @@ looks = Look.create([
 		bottom:closet_items[1],
 		outerwear: new_items[2],
 		accessory: new_items[3]
+	},
+	{
+		title:"marine boy2",
+		occasion: "holiday",
+		like: 5,
+		creator: users[1],
+		owner: users[0],
+		top: closet_items[0],
+		bottom:closet_items[1],
+		outerwear: new_items[2],
+		accessory: new_items[3]
+	},
+	{
+		title:"standard formal wear",
+		occasion: "everyday",
+		like: 3,
+		creator: users[0],
+		owner: users[1],
+		top: new_items[0],
+		bottom:new_items[1],
+		outerwear: closet_items[4],
+		accessory: closet_items[3]
 	}
 ])
 

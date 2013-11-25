@@ -6,6 +6,8 @@ class Look < ActiveRecord::Base
   belongs_to :bottom, class_name: "ClothingItem", inverse_of: :looks_as_bottom
   belongs_to :outerwear, class_name: "ClothingItem", inverse_of: :looks_as_outerwear
   belongs_to :accessory, class_name: "ClothingItem", inverse_of: :looks_as_accessory
+  
+  #validates :top, acceptance: { category: 'top' }
 
   has_many :comments, dependent: :destroy
 end

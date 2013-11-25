@@ -17,5 +17,7 @@
 //= require index
 //= require templates
 //= require index
+//= require jquery-1.9.1
+//= require jquery-ui
 
 //= require_tree .

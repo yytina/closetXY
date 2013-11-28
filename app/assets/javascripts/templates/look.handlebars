@@ -1,0 +1,41 @@
+<div class="row">
+      <div class="col-lg-4 clothing-slots">
+        <h3>from New items</h3>
+        {{#each new_items}}
+        <div class="clothing-item">
+          <img data-id="{{id}}" src="/placeholder.jpg" height="200" />
+          <span data-id="{{id}}">{{color}}/{{size}}/{{material}}</span>   
+        </div>
+        {{/each}}
+        
+      </div>
+      <div class="col-lg-4 clothing-slots">
+        {{#each look}}
+        <h3>look: {{title}}</h3>
+          <img data-id="{{id}}" src="/lookholder.jpg" height="300" />
+        {{/each}}  
+          <p id="comment">Comments:<br>
+            {{#each comments}}
+              {{author}}:{{body}}<br>
+          <form data-id="{{look_id}}" id="comment-add-form">
+            <input type="text" name="comment[body]" value="">
+            <input id="submit" type="submit" value="Create Comment">
+          </form>
+            {{/each}}
+      </div>
+
+      <div class="col-lg-4 clothing-slots">
+        <h3>from Closet items</h3>
+        {{#each closet_items}}
+        <div class="clothing-item">
+          <img data-id="{{id}}" src="/placeholder.jpg" height="200" />
+          <span data-id="{{id}}">{{category}}/{{color}}/{{size}}/{{material}}</span>   
+        </div>
+        {{/each}}
+       
+      </div>
+</div>
+
+
+
+  

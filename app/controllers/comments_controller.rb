@@ -11,6 +11,11 @@ class CommentsController < ApplicationController
 	end
 
 	def create
+		 comment = Comment.new(comment_params)
+		 comment.author = current_user
+		 comment.look = Look.where('id = ?', params[:look_id]).take
+
+		 head comment.save ? :created : :unprocessable_entity
 	end
 
 	def update
@@ -19,4 +24,8 @@ class CommentsController < ApplicationController
 	def destroy
 	end
 
+	protected
+  def comment_params
+    params.require( :comment ).permit( :body )
+  end
 end

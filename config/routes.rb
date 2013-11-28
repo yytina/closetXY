@@ -1,5 +1,11 @@
 ClosetXY::Application.routes.draw do
 
+  # Sign in/out
+  get    'login' => 'session#new', as: :login
+  post   'login' => 'session#create'
+  delete 'logout' => 'session#destroy', as: :logout
+  get    'logout' => 'session#destroy'
+
   scope :api do
     resources :users, except: [ :show, :new, :edit ],
       defaults: { format: :json } do
@@ -10,6 +16,9 @@ ClosetXY::Application.routes.draw do
         get ':id' => 'closet_items#index', on: :collection
       end
     end
+
+    get 'my_closet' => "closet_items#mine"
+    get 'me' => "site#me"
   end
 
   scope :api do

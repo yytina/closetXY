@@ -1,0 +1,10 @@
+<button class="createLook">Add New Look</button>
+<div>
+  {{#each looks}}
+    <div class="clothing-item" class="look">
+      <img data-id="{{id}}" src="/lookholder.jpg" height="200" />
+      <span data-id="{{id}}">{{title}}</span>   
+    </div>
+   
+  {{/each}}
+<div>

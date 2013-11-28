@@ -15,9 +15,10 @@
 
 //= require handlebars
 //= require index
-//= require templates
 //= require index
 //= require jquery-1.9.1
 //= require jquery-ui
 
+//= require handlebars.runtime
+//= require_tree ./templates/
 //= require_tree .

@@ -7,16 +7,23 @@ Comment.destroy_all
 users=User.create([
 	{
 		name: "Jack",
+		is_admin: true,
+		email: "jack@gmail.com",
+    password: "123",
 		height: 180,
 		body_type: "athelatic"
 	},
 	{
 		name: "Bob",
+		email: "bob@gmail.com",
+    password: "123",
 		height: 175,
 		body_type: "thin"
 	},
 	{
 		name: "Tom",
+		email: "tom@gmail.com",
+    password: "123",
 		height: 185,
 		body_type: "chubby"
 	},
@@ -116,6 +123,7 @@ new_items = NewItem.create([
 		material:"metal"
 	}
 ])
+
 looks = Look.create([
 	{
 		title:"clean casual mood",

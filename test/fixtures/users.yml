@@ -1,23 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
+  is_admin: false
   name: MyString
   email: MyString
-  salt: MyString
-  fish: MyString
-  code: MyString
-  expires_at: MyString
-  timestamp: MyString
+  password: MyString
   height: 1
-  bodyType: MyString
+  body_type: MyString
 
 two:
+  is_admin: false
   name: MyString
   email: MyString
-  salt: MyString
-  fish: MyString
-  code: MyString
-  expires_at: MyString
-  timestamp: MyString
+  password: MyString
   height: 1
-  bodyType: MyString
+  body_type: MyString

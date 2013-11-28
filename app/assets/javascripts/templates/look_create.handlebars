@@ -1,0 +1,77 @@
+<div class="row">
+      <div class="col-lg-4 clothing-slots">
+        <h3>from New items</h3>
+        
+        <div id="new_tabs">
+          <ul>
+            <li><a href="#new_tabs-top">Top</a></li>
+            <li><a href="#new_tabs-bottom">Bottom</a></li>
+            <li><a href="#new_tabs-outerwear">Outerwear</a></li>
+            <li><a href="#new_tabs-accessory">Accessory</a></li>
+          </ul>
+          {{#each new_categories}}
+            <div id="new_tabs-{{name}}" class="tabs-inner">
+              {{#each clothing_items}}
+                <div class="clothing-item">
+                  <img data-id="{{id}}" src="/placeholder.jpg" height="200" />
+                  <span data-id="{{id}}">{{category}}/{{color}}/{{material}}/{{price}}</span>   
+                </div>
+              {{/each}}
+            </div>
+          {{/each}}
+        </div>
+
+        <script>
+          $('#new_tabs').tabs();
+        </script>
+
+      </div>
+
+      <div class="col-lg-4 clothing-slots">
+        <h3>look: </h3>
+          <img src="http://placehold.it/250x350">
+          <form id="look-create-form">
+            <p>Top: <span id="top_for_look" name="look[top]"></span></p> 
+            <p>Bottom: <span id="bottom_for_look" name="look[bottom]"></span></p>  
+            <p>Outerwear: <span id="outerwear_for_look" name="look[outerwear]"></span></p>  
+            <p>Accessory: <span id="accessory_for_look" name="look[accessory]"></span></p>  
+            <p>Title: <input type="text" name="look[title]" value="{{name}}"></p>
+            <button id="look-create-submit" type="submit" value="Save">Save Look</button>
+          </form> 
+            
+
+
+          
+
+      </div>
+
+      <div class="col-lg-4 clothing-slots">
+        <h3>from Closet items</h3>
+        <div id="closet_tabs">
+          <ul>
+            <li><a href="#closet_tabs-top">Top</a></li>
+            <li><a href="#closet_tabs-bottom">Bottom</a></li>
+            <li><a href="#closet_tabs-outerwear">Outerwear</a></li>
+            <li><a href="#closet_tabs-accessory">Accessory</a></li>
+          </ul>
+          {{#each closet_categories}}
+            <div id="closet_tabs-{{name}}" class="tabs-inner">
+              {{#each clothing_items}}
+                <div class="clothing-item">
+                  <img data-id="{{id}}" src="/placeholder.jpg" height="200" />
+                  <span data-id="{{id}}">{{category}}/{{color}}/{{material}}/{{price}}</span>   
+                </div>
+              {{/each}}
+            </div>
+          {{/each}}
+        </div>
+
+        <script>
+          $('#closet_tabs').tabs();
+        </script>
+        
+       
+      </div>
+</div>
+
+

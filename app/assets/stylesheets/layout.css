@@ -1,0 +1,18 @@
+.clothing-slots {
+	border: dotted 2px gray;
+	height: 600px;
+	
+}
+
+.clothing-item {
+  width: 147px;
+  float: left;
+}
+
+.clothing-item span {
+	text-align: center;
+}
+
+.tabs-inner {
+	overflow: hidden;
+}

@@ -1,2 +1,19 @@
+
+<script>
+  var currentUserId = <%= @current_user.id %>;
+
+  $.ajax({
+    url: "/api/me",
+    type: "GET"
+  }).done(function(data) {
+  	console.log(data.id);
+  	currentUserId=data.id;
+  	currentUserName=data.name;
+  	$('#test').html(currentUserName);
+  });
+</script>
+<section id="test"></section>
 <section id="content"></section>
-<section id="closet"></section>
+
+
+

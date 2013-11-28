@@ -1,0 +1,25 @@
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-top">Top</a></li>
+    <li><a href="#tabs-bottom">Bottom</a></li>
+    <li><a href="#tabs-outerwear">Outerwear</a></li>
+    <li><a href="#tabs-accessory">Accessory</a></li>
+  </ul>
+  {{#each categories}}
+    <div id="tabs-{{name}}" class="tabs-inner">
+      {{#each clothing_items}}
+        <div class="clothing-item">
+          <img data-id="{{id}}" src="/placeholder.jpg" height="200" />
+          <span data-id="{{id}}">{{color}}/{{material}}/{{price}}</span>   
+        </div>
+      {{/each}}
+    </div>
+  {{/each}}
+</div>
+
+<script>
+  $('#tabs').tabs();
+</script>
+
+
+

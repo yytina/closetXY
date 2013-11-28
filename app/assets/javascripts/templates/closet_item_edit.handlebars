@@ -1,0 +1,9 @@
+{{#each closet_items}}
+  <form id="closet-item-edit-form" data-id="{{id}}">
+    <p>category <input type="text" name="closet_item[category]" value="{{category}}"></p>
+    <p>color <input type="text" name="closet_item[color]" value="{{color}}"></p>
+    <p>material <input type="text" name="closet_item[material]" value="{{material}}"></p>
+    <p>size <input type="text" name="closet_item[size]" value="{{size}}"></p>
+    <input type="submit" value="Save Changes">
+  </form>
+{{/each}}

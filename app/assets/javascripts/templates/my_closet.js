@@ -21,7 +21,11 @@ function program1(depth0,data) {
 function program2(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\n        <div class=\"clothing-item\">\n          <img data-id=\"";
+  buffer += "\n        <div class=\"clothing-item\" data-id=\"";
+  if (stack1 = helpers.id) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = (depth0 && depth0.id); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\">\n          <img data-id=\"";
   if (stack1 = helpers.id) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = (depth0 && depth0.id); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
   buffer += escapeExpression(stack1)
@@ -45,7 +49,7 @@ function program2(depth0,data) {
   if (stack1 = helpers.material) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = (depth0 && depth0.material); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</span>   \n        </div>\n      ";
+    + "</span> \n          <button class=\"edit-closet-item\">Edit</button>\n          <button class=\"delete-closet-item\">Delete</button>  \n        </div>\n      ";
   return buffer;
   }
 

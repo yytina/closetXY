@@ -74,7 +74,7 @@ $ ->
     $('.navbar-collapse collapse').find('li').removeClass('active');
     $(@).addClass('active')
     id = currentUserId
-    showPage "/api/my_closet", Handlebars.templates.my_closet
+    showPage "/api/users/#{id}/closet_items", Handlebars.templates.my_closet
 
   $('#MarketNav').on 'click', (e) ->
     $('.navbar-collapse collapse').find('li').removeClass('active');
@@ -145,15 +145,38 @@ $ ->
   $('section').on 'submit', 'form#closet-item-add-form', (e) ->
     e.preventDefault()
     id = currentUserId
-    $.ajax "/api/users",
+    $.ajax "/api/users/#{id}/closet_items",
       type: 'POST',
       data: $(@).serialize(),
       dataType: 'text',
       success: (x) ->
         console.log('Success!')
-        showPage '/api/users/#{id}/closet_items', Handlebars.templates.users
+        showPage "/api/users/#{currentUserId}/closet_items", Handlebars.templates.my_closet 
 
-  
+  $('section').on 'click', 'button.edit-closet-item', (e) ->
+    console.log($(@))
+    id = $(@).parent().data('id')
+    console.log(id)
+    showPage "/api/users/#{currentUserId}/closet_items/#{id}", Handlebars.templates.closet_item_edit
+
+  $('section').on 'submit', 'form#closet-item-edit-form', (e) ->
+    e.preventDefault()
+    id = $(@).data('id')
+    console.log(id)
+    $.ajax "/api/users/#{currentUserId}/closet_items/#{id}",
+      type: 'PATCH',
+      data: $(@).serialize(),
+      dataType: 'text',
+      success: (x) ->
+        console.log('Success!')
+        showPage "/api/users/#{currentUserId}/closet_items", Handlebars.templates.my_closet 
+
+  $('section').on 'click', 'button.delete-closet-item', (e) ->
+    id = $(@).parent().data('id')
+    $.ajax "/api/users/#{currentUserId}/closet_items/#{id}",
+      type: 'DELETE',
+      success: ->
+        showPage "/api/users/#{currentUserId}/closet_items", Handlebars.templates.my_closet
 
   $('section').on 'click', 'ul li button.edit', (e) ->
     id = $(@).parent().data('id')

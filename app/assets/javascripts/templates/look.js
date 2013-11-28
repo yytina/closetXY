@@ -3,7 +3,7 @@
 templates['look'] = template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  var buffer = "", stack1, stack2, functionType="function", escapeExpression=this.escapeExpression, self=this;
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
 
 function program1(depth0,data) {
   
@@ -65,6 +65,17 @@ function program5(depth0,data) {
 function program7(depth0,data) {
   
   var buffer = "", stack1;
+  buffer += "\n          <form data-id=\"";
+  if (stack1 = helpers.id) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = (depth0 && depth0.id); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\" id=\"comment-add-form\">\n            <input type=\"text\" name=\"comment[body]\" value=\"\">\n            <input id=\"submit\" type=\"submit\" value=\"Create Comment\">\n          </form>\n          ";
+  return buffer;
+  }
+
+function program9(depth0,data) {
+  
+  var buffer = "", stack1;
   buffer += "\n        <div class=\"clothing-item\">\n          <img data-id=\"";
   if (stack1 = helpers.id) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = (depth0 && depth0.id); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
@@ -102,11 +113,12 @@ function program7(depth0,data) {
   buffer += "  \n          <p id=\"comment\">Comments:<br>\n            ";
   stack1 = helpers.each.call(depth0, (depth0 && depth0.comments), {hash:{},inverse:self.noop,fn:self.program(5, program5, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n          <form data-id=\""
-    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.look)),stack1 == null || stack1 === false ? stack1 : stack1.id)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "\" id=\"comment-add-form\">\n            <input type=\"text\" name=\"comment[body]\" value=\"\">\n            <input id=\"submit\" type=\"submit\" value=\"Create Comment\">\n          </form>\n            \n        \n      </div>\n\n      <div class=\"col-lg-4 clothing-slots\">\n        <h3>from Closet items</h3>\n        ";
-  stack2 = helpers.each.call(depth0, (depth0 && depth0.closet_items), {hash:{},inverse:self.noop,fn:self.program(7, program7, data),data:data});
-  if(stack2 || stack2 === 0) { buffer += stack2; }
+  buffer += "\n          ";
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.look), {hash:{},inverse:self.noop,fn:self.program(7, program7, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n            \n      </div>\n\n      <div class=\"col-lg-4 clothing-slots\">\n        <h3>from Closet items</h3>\n        ";
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.closet_items), {hash:{},inverse:self.noop,fn:self.program(9, program9, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n       \n      </div>\n</div>\n\n\n\n  \n";
   return buffer;
   });

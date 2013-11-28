@@ -9,9 +9,11 @@
   {{#each categories}}
     <div id="tabs-{{name}}" class="tabs-inner">
       {{#each clothing_items}}
-        <div class="clothing-item">
+        <div class="clothing-item" data-id="{{id}}">
           <img data-id="{{id}}" src="/placeholder.jpg" height="200" />
-          <span data-id="{{id}}">{{category}}/{{color}}/{{size}}/{{material}}</span>   
+          <span data-id="{{id}}">{{category}}/{{color}}/{{size}}/{{material}}</span> 
+          <button class="edit-closet-item">Edit</button>
+          <button class="delete-closet-item">Delete</button>  
         </div>
       {{/each}}
     </div>

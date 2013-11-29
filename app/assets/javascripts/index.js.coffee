@@ -61,12 +61,21 @@ $ ->
         if (category=="accessory")
           $("#accessory_for_look").html(id)
           accessory_id=id
+
+          $("#url").val()
+          $('input[name=title]').val(result)
        
   $('section').on 'submit', '#look-create-form', (e) ->
     e.preventDefault()
     $.ajax "/api/looks",
       type: 'POST',
-      data: $(@).serialize,
+      data: {
+            "look[top_id]": $("#top_for_look").html(),
+            "look[bottom_id]": $("#bottom_for_look").html(),
+            "look[outerwear_id]": $("#outerwear_for_look").html(),
+            "look[accessory_id]": $("#accessory_for_look").html(),
+            "look[title]": $('#title').val()
+            } ,
       dataType: 'json',
       success: (x) ->
         console.log('Success!')
@@ -74,23 +83,24 @@ $ ->
     
 
   $('#FriendsNav').on 'click', (e) ->
-    $('.navbar-collapse collapse').find('li').removeClass('active');
+    $('.nav navbar-nav').find('li').removeClass('active');
     $(@).addClass('active')
     showPage "/api/users", Handlebars.templates.users
 
   $('#ClosetNav').on 'click', (e) ->
-    $('.navbar-collapse collapse').find('li').removeClass('active');
+    $('.nav navbar-nav').find('li').removeClass('active');
     $(@).addClass('active')
     id = currentUserId
     showPage "/api/users/#{id}/closet_items", Handlebars.templates.my_closet
 
+
   $('#MarketNav').on 'click', (e) ->
-    $('.navbar-collapse collapse').find('li').removeClass('active');
+    $('.nav navbar-nav').find('li').removeClass('active');
     $(@).addClass('active')
     showPage "/api/new_items", Handlebars.templates.market
 
   $('#LookNav').on 'click', (e) ->
-    $('.navbar-collapse collapse').find('li').removeClass('active');
+    $('.nav navbar-nav').find('li').removeClass('active');
     $(@).addClass('active')
     showPage "/api/looks", Handlebars.templates.looks
 

@@ -60,7 +60,8 @@ class LooksController < ApplicationController
 	
 
 	def create
-    look= Look.new(look_params)
+    look = Look.new(look_params)
+    look.creator = current_user
     #Look.top=ClothingItem.where('id = ?', params[:top_id]).take
     head look.save ? :created : :unprocessable_entity
 	end
@@ -75,7 +76,7 @@ class LooksController < ApplicationController
   protected
 
   def look_params
-    params.require( :look ).permit( :title, :top, :botoom, :outerwear, :accessory )
+    params.require( :look ).permit( :top_id, :bottom_id, :outerwear_id, :accessory_id, :title)
   end
 
 end

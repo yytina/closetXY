@@ -1,10 +1,22 @@
-<button class="show-add-form">Add new</button>
-<ul>
-  {{#each users}}
-    <li data-id="{{id}}">
-      <span>{{name}}</span>
-      <button class="edit">Edit</button>
-      <button class="delete">Delete</button>
-    </li>
-  {{/each}}
-</ul>
+<div class="row">
+  <div class="col-lg-4">
+    <table id="users-table" class="table table-bordered table-striped">
+      <thead>
+	      <tr>
+	        <th> Name</th>
+	        <th> Closet Items </th>
+	        <th> Created Looks </th>
+	        <th> Owned Looks </th>
+	      </tr>
+      </thead>
+      <tbody>
+			  {{#each users}}
+			    <tr>
+			      <td><span data-id="{{id}}">{{name}}</span></td>
+					  <td><button id="show-closet-items" data-id="{{id}}" type="button" class="btn btn-sm btn-info">View Details&raquo;</button></td>
+					  <td><button id="show-created-looks" data-id="{{id}}" type="button" class="btn btn-sm btn-warning">View Details&raquo;</button></td>
+					  <td><button id="show-owned-looks" data-id="{{id}}" type="button" class="btn btn-sm btn-success">View Details&raquo;</button></td>
+			  {{/each}}
+
+  </div>
+</div>

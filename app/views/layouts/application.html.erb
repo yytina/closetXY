@@ -13,11 +13,12 @@
 </head>
 <body>
 <div class="container">
-
+    <%- if current_user %>
       <!-- Static navbar -->
       <%= render partial: 'layouts/navigation' %>
-
-      
+    <%- else %>
+      <%= render partial: 'layouts/header' %>
+    <%- end %>  
 
 
 <%= yield %>

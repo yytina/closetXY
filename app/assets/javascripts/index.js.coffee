@@ -27,12 +27,16 @@ $ ->
         category=clothing_item.category
         if (category=="top")
           $("#top_for_look").html(id)
+          top_id=id
         if (category=="bottom")
           $("#bottom_for_look").html(id)
+          bottom_id=id
         if (category=="outerwear")
           $("#outerwear_for_look").html(id)
+          outerwear_id=id
         if (category=="accessory")
           $("#accessory_for_look").html(id)
+          accessory_id=id
 
 
   $('section').on 'click', 'div#closet_tabs img', (e) ->
@@ -47,19 +51,23 @@ $ ->
         category=clothing_item.category
         if (category=="top")
           $("#top_for_look").html(id)
+          top_id=id
         if (category=="bottom")
           $("#bottom_for_look").html(id)
+          bottom_id=id
         if (category=="outerwear")
           $("#outerwear_for_look").html(id)
+          outerwear_id=id
         if (category=="accessory")
           $("#accessory_for_look").html(id)
+          accessory_id=id
        
   $('section').on 'submit', '#look-create-form', (e) ->
     e.preventDefault()
     $.ajax "/api/looks",
       type: 'POST',
-      data: $(@).serialize(),
-      dataType: 'text',
+      data: $(@).serialize,
+      dataType: 'json',
       success: (x) ->
         console.log('Success!')
         showPage '/api/looks', Handlebars.templates.looks
@@ -86,8 +94,8 @@ $ ->
     $(@).addClass('active')
     showPage "/api/looks", Handlebars.templates.looks
 
-  $('section').on 'click', 'ul li span', (e) ->
-    id = $(@).parent().data('id')
+  $('section').on 'click', 'button#show-closet-items', (e) ->
+    id = $(@).data('id')
     showPage "/api/users/#{id}/closet_items", Handlebars.templates.user
         
   $('section').on 'click', '#back-to-users', (e) ->
@@ -192,4 +200,4 @@ $ ->
   
         
         
-  showPage '/api/users', Handlebars.templates.users
+  showPage "/api/users/#{currentUserId}/closet_items", Handlebars.templates.my_closet 

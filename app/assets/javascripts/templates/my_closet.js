@@ -56,7 +56,7 @@ function program2(depth0,data) {
   buffer += "<button class=\"show-closet-item-add-form\">Add New Closet Item</button>\n<div id=\"tabs\">\n  <ul>\n    <li><a href=\"#tabs-top\">Top</a></li>\n    <li><a href=\"#tabs-bottom\">Bottom</a></li>\n    <li><a href=\"#tabs-outerwear\">Outerwear</a></li>\n    <li><a href=\"#tabs-accessory\">Accessory</a></li>\n  </ul>\n  ";
   stack1 = helpers.each.call(depth0, (depth0 && depth0.categories), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n</div>\n\n<script>\n  $('#tabs').tabs();\n</script>\n\n\n<form>\n  <input type=\"text\">\n  <button> Update</button>\n</form>\n";
+  buffer += "\n</div>\n\n<script>\n  $('#tabs').tabs();\n</script>\n\n\n";
   return buffer;
   });
 })();

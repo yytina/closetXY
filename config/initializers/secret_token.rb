@@ -9,6 +9,6 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-ClosetXY::Application.config.secret_key_base = ENV['SECRET_TOKEN']
+ClosetXY::Application.config.secret_key_base = 'ae98e8ede9496ba388908456d14088fb3cb352ae2b30af69057cff81a6379868a89075b905fcc3992520e8461b31fe6a3f6efe019b28300bde8d7899a9590a78'
 
 

@@ -1,9 +1,10 @@
 {{#each closet_items}}
-  <form id="closet-item-edit-form" data-id="{{id}}">
+  <form id="closet-item-edit-form" data-id="{{id}}" enctype="multipart/form-data">
     <p>category <input type="text" name="closet_item[category]" value="{{category}}"></p>
     <p>color <input type="text" name="closet_item[color]" value="{{color}}"></p>
     <p>material <input type="text" name="closet_item[material]" value="{{material}}"></p>
     <p>size <input type="text" name="closet_item[size]" value="{{size}}"></p>
+    <p>image <input type="file" name="closet_item[image]" value=""> </p>
     <input type="submit" value="Save Changes">
   </form>
 {{/each}}

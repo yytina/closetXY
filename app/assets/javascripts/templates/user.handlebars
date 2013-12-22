@@ -10,6 +10,7 @@
     <div id="tabs-{{name}}" class="tabs-inner">
       {{#each clothing_items}}
         <div class="clothing-item">
+          <image_tag closet_item.image_url.to_s >
           <img data-id="{{id}}" src="/placeholder.jpg" height="200" />
           <span data-id="{{id}}">{{category}}/{{color}}/{{size}}/{{material}}</span>   
         </div>

@@ -78,6 +78,7 @@ class ClosetItemsController < ApplicationController
 	def create
     closet_item = ClosetItem.new(closet_item_params)
     closet_item.user=current_user
+    closet_item.image = params[:file]
 		head closet_item.save ? :created : :unprocessable_entity
 	end
 
@@ -94,6 +95,6 @@ class ClosetItemsController < ApplicationController
 	protected
 
   def closet_item_params
-    params.require( :closet_item ).permit( :category, :color, :material, :size)
+    params.require( :closet_item ).permit( :category, :color, :material, :size, :image)
   end
 end

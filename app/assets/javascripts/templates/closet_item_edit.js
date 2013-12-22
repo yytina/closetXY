@@ -12,7 +12,7 @@ function program1(depth0,data) {
   if (stack1 = helpers.id) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = (depth0 && depth0.id); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\">\n    <p>category <input type=\"text\" name=\"closet_item[category]\" value=\"";
+    + "\" enctype=\"multipart/form-data\">\n    <p>category <input type=\"text\" name=\"closet_item[category]\" value=\"";
   if (stack1 = helpers.category) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = (depth0 && depth0.category); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
   buffer += escapeExpression(stack1)
@@ -28,7 +28,7 @@ function program1(depth0,data) {
   if (stack1 = helpers.size) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = (depth0 && depth0.size); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\"></p>\n    <input type=\"submit\" value=\"Save Changes\">\n  </form>\n";
+    + "\"></p>\n    <p>image <input type=\"file\" name=\"closet_item[image]\" value=\"\"> </p>\n    <input type=\"submit\" value=\"Save Changes\">\n  </form>\n";
   return buffer;
   }
 
